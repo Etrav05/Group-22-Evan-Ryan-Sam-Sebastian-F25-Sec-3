@@ -39,7 +39,7 @@ builder.Services.AddDbContext<AppDbContext>(options => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// CORS configuration:
+// CORS configuration:.NET MAUI App
 // - This sample adds a named policy "MobileApp"
 // - Update the origins below to match any origin
 // - In production, prefer more restrictive policies (specific origins + credentials as needed).
