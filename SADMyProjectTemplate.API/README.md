@@ -23,7 +23,7 @@ Includes a sample `WeatherForecast` controller, Swagger/OpenAPI, and a CORS poli
    - From Visual Studio: select the API project and press F5 (or use __Debug > Start Debugging__).
      - Launch profiles are defined in `Properties/launchSettings.json`.
    - From the command line:
-     - cd to `MyProjectTemplate.API`
+     - cd to `SADMyProjectTemplate.API`
      - `dotnet run`
    - Swagger UI is available in Development at: `https://localhost:7048/swagger` (ports are determined by launch settings).
 

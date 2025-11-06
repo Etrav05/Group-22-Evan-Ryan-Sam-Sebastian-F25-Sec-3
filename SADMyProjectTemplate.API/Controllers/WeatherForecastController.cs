@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace MyProjectTemplate.API.Controllers
+namespace SADMyProjectTemplate.API.Controllers
 {
     [ApiController]
     [Route("[controller]")] // Route: /WeatherForecast

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36616.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProjectTemplate.API", "MyProjectTemplate.API\MyProjectTemplate.API.csproj", "{1AE3244F-FBCB-4D47-A46C-86EF718DF204}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SADMyProjectTemplate.API", "SADMyProjectTemplate.API\SADMyProjectTemplate.API.csproj", "{1AE3244F-FBCB-4D47-A46C-86EF718DF204}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "myprojecttemplate.client.client", "MyProjectTemplate.Client\myprojecttemplate.client.client\myprojecttemplate.client.client.esproj", "{B122EC55-74BD-45CE-00A7-5D98763B5B2B}"
 EndProject

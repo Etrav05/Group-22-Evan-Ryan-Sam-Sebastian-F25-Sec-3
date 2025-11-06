@@ -1,7 +1,7 @@
 // Simple POCO representing weather data returned by the sample controller.
 // Replace or extend this model with real business properties as needed.
 
-namespace MyProjectTemplate.API
+namespace SADMyProjectTemplate.API
 {
     public class WeatherForecast
     {
