@@ -40,12 +40,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // CORS configuration:
-// - This sample adds a named policy "AllowReactApp" that whitelists origins used by the local client (Vite).
-// - Update the origins below to match the URLs your client will run on.
+// - This sample adds a named policy "MobileApp"
+// - Update the origins below to match any origin
 // - In production, prefer more restrictive policies (specific origins + credentials as needed).
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp",
+    options.AddPolicy("MobileApp",
         policy =>
         {
             policy.AllowAnyOrigin() // removed vite origin
@@ -71,7 +71,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 // Use CORS before controllers
-app.UseCors("AllowReactApp");
+app.UseCors("MobileApp");
 
 // Map controller routes(e.g., WeatherForecastControll
 app.MapControllers();

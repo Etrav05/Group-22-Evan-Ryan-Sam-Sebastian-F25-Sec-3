@@ -13,6 +13,7 @@ namespace SADMyProjectTemplate.API.Data
             : base(options) { }
 
         // This class tells EF core to create a table for DriverData in the DB and lets us query/save DriverData objects using this property
+        // The API is jnow ready for the collected driver data
         public DbSet<DriverData> DriverData { get; set; }  // example usage: _db.DriverData.Add(new DriverData { Speed = 50 }); 
     }
 }
