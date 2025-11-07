@@ -1,5 +1,4 @@
 # MyProjectTemplate.API
-
 Small ASP.NET Core Web API template (.NET 8).  
 Includes a sample `WeatherForecast` controller, Swagger/OpenAPI, and a CORS policy used for local development with a Vite-based React client.
 
