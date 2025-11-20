@@ -18,7 +18,7 @@ builder.Services.AddControllers();
 
 
 // Add EF Core + MySQL
-// This is how we will tell the ASP.NET Core dependency injection (DI) system: “Whenever something in our app asks for an AppDbContext, create one for it automatically.”
+// This is how we will tell the ASP.NET Core dependency injection (DI) system: ï¿½Whenever something in our app asks for an AppDbContext, create one for it automatically.ï¿½
 builder.Services.AddDbContext<AppDbContext>(options => {
     // This line fetches our connection string from appsettings.json.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -57,6 +57,13 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+
+// Main code can go between here...
+
+
+
+// ...and here. like the monitors on the sub, before we pull them out into controllers/middleware/etc.
 
 // Development-only middleware: show Swagger UI and OpenAPI docs.
 // Keep these inside the IsDevelopment check to avoid exposing API docs in production.
