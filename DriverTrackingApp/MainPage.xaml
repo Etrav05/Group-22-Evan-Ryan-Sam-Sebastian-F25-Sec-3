@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DriverTrackingApp.MainPage"
+             BackgroundColor="#E6F2FF">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <!-- Circular Driver Score -->
+            <Frame WidthRequest="200"
+                   HeightRequest="200"
+                   CornerRadius="100"
+                   BackgroundColor="#3399FF"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HasShadow="True">
+                <Label Text="750"
+                       x:Name="DriverScoreLabel"
+                       FontSize="48"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+            </Frame>
+
+            <!-- Start Trip Button -->
+            <Button Text="Start Trip"
+                    x:Name="StartTripBtn"
+                    BackgroundColor="#4DA6FF"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="10"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"/>
+
+            <!-- End Trip Button -->
+            <Button Text="End Trip"
+                    x:Name="EndTripBtn"
+                    BackgroundColor="#0066CC"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="10"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"/>
+
+            <!-- History Button -->
+            <Button Text="Trip History"
+                    x:Name="HistoryBtn"
+                    BackgroundColor="#80CFFF"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="10"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
