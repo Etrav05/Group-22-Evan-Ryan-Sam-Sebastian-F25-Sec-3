@@ -9,7 +9,8 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            // Wrap login page in navigation so PushAsync works
+            return new Window(new NavigationPage(new LoginPage()));
         }
     }
 }

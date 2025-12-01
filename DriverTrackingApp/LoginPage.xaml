@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DriverTrackingApp.LoginPage"
+             BackgroundColor="#E6F2FF">
+    <!-- Deep blue -->
+
+    <VerticalStackLayout Padding="30" Spacing="25">
+
+        <!-- Title -->
+        <Label Text="Blue Shell Login"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#1A237E" />
+
+        <!-- Blue Shell Frame -->
+        <Frame Padding="20"
+               BackgroundColor="#283593"
+               HasShadow="True"
+               CornerRadius="28">
+
+            <VerticalStackLayout Spacing="20">
+
+                <!-- USERNAME ENTRY (rounded using Frame) -->
+                <Frame BackgroundColor="#3949AB"
+                       Padding="10"
+                       CornerRadius="15"
+                       HasShadow="False">
+                    <Entry x:Name="UsernameEntry"
+                           Placeholder="Username"
+                           PlaceholderColor="#90CAF9"
+                           TextColor="White"
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <!-- PASSWORD ENTRY -->
+                <Frame BackgroundColor="#3949AB"
+                       Padding="10"
+                       CornerRadius="15"
+                       HasShadow="False">
+                    <Entry x:Name="PasswordEntry"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           PlaceholderColor="#90CAF9"
+                           TextColor="White"
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <!-- LOGIN BUTTON -->
+                <Button Text="Login"
+                        Clicked="OnLoginClicked"
+                        TextColor="White"
+                        BackgroundColor="#512BD4"
+                        CornerRadius="15"
+                        FontAttributes="Bold"
+                        HeightRequest="50" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Blue shell flavor text -->
+        <Label Text="Powered by Blue Shell Insurance"
+               HorizontalOptions="Center"
+               TextColor="#7986CB"
+               FontSize="14" />
+
+    </VerticalStackLayout>
+</ContentPage>
