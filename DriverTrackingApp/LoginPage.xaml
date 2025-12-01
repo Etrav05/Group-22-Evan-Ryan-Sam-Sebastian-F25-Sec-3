@@ -16,26 +16,26 @@
 
         <!-- Blue Shell Frame -->
         <Frame Padding="20"
-               BackgroundColor="#283593"
+               BackgroundColor="#4DA6FF"
                HasShadow="True"
                CornerRadius="28">
 
             <VerticalStackLayout Spacing="20">
 
                 <!-- USERNAME ENTRY (rounded using Frame) -->
-                <Frame BackgroundColor="#3949AB"
+                <Frame BackgroundColor="#E6F2FF"
                        Padding="10"
                        CornerRadius="15"
                        HasShadow="False">
                     <Entry x:Name="UsernameEntry"
                            Placeholder="Username"
                            PlaceholderColor="#90CAF9"
-                           TextColor="White"
+                           TextColor="Black"
                            BackgroundColor="Transparent" />
                 </Frame>
 
                 <!-- PASSWORD ENTRY -->
-                <Frame BackgroundColor="#3949AB"
+                <Frame BackgroundColor="#E6F2FF"
                        Padding="10"
                        CornerRadius="15"
                        HasShadow="False">
@@ -43,7 +43,7 @@
                            Placeholder="Password"
                            IsPassword="True"
                            PlaceholderColor="#90CAF9"
-                           TextColor="White"
+                           TextColor="Black"
                            BackgroundColor="Transparent" />
                 </Frame>
 
@@ -51,7 +51,7 @@
                 <Button Text="Login"
                         Clicked="OnLoginClicked"
                         TextColor="White"
-                        BackgroundColor="#512BD4"
+                        BackgroundColor="#80CFFF"
                         CornerRadius="15"
                         FontAttributes="Bold"
                         HeightRequest="50" />
