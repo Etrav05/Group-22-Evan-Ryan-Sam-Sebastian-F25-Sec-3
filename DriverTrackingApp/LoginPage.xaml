@@ -1,0 +1,20 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DriverTrackingApp.LoginPage">
+
+    <VerticalStackLayout Padding="30" Spacing="15">
+
+        <Label Text="Login" FontSize="24" HorizontalOptions="Center" />
+
+        <Entry x:Name="UsernameEntry"
+               Placeholder="Username" />
+
+        <Entry x:Name="PasswordEntry"
+               Placeholder="Password"
+               IsPassword="True" />
+
+        <Button Text="Login"
+                Clicked="OnLoginClicked" />
+    </VerticalStackLayout>
+</ContentPage>
+    
