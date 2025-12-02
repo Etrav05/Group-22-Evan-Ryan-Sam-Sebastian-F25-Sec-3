@@ -15,7 +15,7 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    HasShadow="True">
-                <Label Text="750"
+                <Label Text="750"     
                        x:Name="DriverScoreLabel"
                        FontSize="48"
                        TextColor="White"
