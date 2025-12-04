@@ -16,11 +16,16 @@ public partial class LoginPage : ContentPage
 
         // Fake login values
         string fakeUser = "driver";
-        string fakePass = "password123";
+        string fakePass = "pass123";
 
         if (user == fakeUser && pass == fakePass)
         {
-            await Navigation.PushAsync(new MainPage());
+            var telemetry = App.Services.GetService<TelemetryService>();
+
+            telemetry.AccountId = Guid.Parse("11111111-1111-1111-1111-111111111111"); // Hardcoded account for now
+
+            var mainPage = App.Services.GetService<MainPage>();
+            await Navigation.PushAsync(mainPage);
         }
         else
         {

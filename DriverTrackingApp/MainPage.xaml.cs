@@ -7,30 +7,29 @@ namespace DriverTrackingApp
 {
     public partial class MainPage : ContentPage
     {
-        private TelemetryService _telemetry = new TelemetryService(); // Create a new telemery service instance to use in this page
+        private readonly TelemetryService _telemetry;  // Create a new telemery service instance to use in this page
 
-        public MainPage()
+        public MainPage(TelemetryService telemetry)
         {
             InitializeComponent();
+            _telemetry = telemetry;
 
             StartTripBtn.Clicked += StartTripBtn_Clicked;
+            EndTripBtn.Clicked += EndTripBtn_Clicked;
         }
-        private void StartTripBtn_Clicked(object sender, EventArgs e)
+        private async void StartTripBtn_Clicked(object sender, EventArgs e)
         {
-            Task.Run(() => _telemetry.StartAsync());
-            Console.WriteLine("Telemetry started!");
+            await _telemetry.StartAsync();  // now runs on MAIN/UI THREAD (Permissions again)
         }
 
-        /*
-        private void EndTripBtn_Clicked(object sender, EventArgs e)
+        private async void EndTripBtn_Clicked(object sender, EventArgs e)
         {
-            StopTelemetry();
+            await _telemetry.StopAsync(); 
         }
-        */
 
-        private void OnTripHistoryClicked(object sender, EventArgs e) {
-            // Fake click action
-            DisplayAlert("Trip History", $"Trip History clicked 1 times!", "OK");
+        private void TripHistory_Clicked(object sender, EventArgs e) 
+        {
+            DisplayAlert("Trip History", $"Trip History clicked", "OK"); // Fake click action
         }
     }
 }

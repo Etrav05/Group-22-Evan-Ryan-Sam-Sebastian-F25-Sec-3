@@ -2,15 +2,16 @@
 {
     public partial class App : Application
     {
-        public App()
+        public static IServiceProvider Services { get; set; }
+
+        public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-        }
+            Services = serviceProvider;
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            // Wrap login page in navigation so PushAsync works
-            return new Window(new NavigationPage(new LoginPage()));
+            // Show LoginPage first via a DI
+            var loginPage = Services.GetRequiredService<LoginPage>();
+            MainPage = new NavigationPage(loginPage);
         }
     }
 }
