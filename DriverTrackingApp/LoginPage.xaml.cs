@@ -29,7 +29,7 @@ public partial class LoginPage : ContentPage
         {
             _telemetry.AccountId = Guid.Parse("11111111-1111-1111-1111-111111111111"); // Hardcoded account for now
 
-            await Navigation.PushAsync(_mainPage); // Navigate to the main page if login is successful
+            Application.Current.MainPage = new NavigationPage(_mainPage);
         }
         else
         {

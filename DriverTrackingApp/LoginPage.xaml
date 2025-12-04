@@ -51,6 +51,7 @@
                 <Button Text="Login"
                         Clicked="OnLoginClicked"
                         TextColor="White"
+                        FontSize="18"
                         BackgroundColor="#80CFFF"
                         CornerRadius="15"
                         FontAttributes="Bold"

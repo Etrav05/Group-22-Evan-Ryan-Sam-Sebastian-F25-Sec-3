@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DriverTrackingApp.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.IO;
 
@@ -28,8 +29,13 @@ namespace DriverTrackingApp
 
             // Transient services just means a new instance is created each time requested (Supposed to be good for small apps)
             builder.Services.AddTransient<TelemetryService>();
+            builder.Services.AddTransient<GetTrips>();
+            builder.Services.AddTransient<ProcessTrip>();
+
+            // Pages
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<TripHistoryPage>();
 
 #if DEBUG  
 

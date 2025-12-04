@@ -6,19 +6,20 @@
     xmlns:local="clr-namespace:DriverTrackingApp">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="25" HorizontalOptions="Center" VerticalOptions="Center">
+        <VerticalStackLayout Padding="110" Spacing="35" HorizontalOptions="Center" VerticalOptions="Center">
 
             <!-- Circular Driver Score -->
-            <Frame WidthRequest="200"
-                   HeightRequest="200"
-                   CornerRadius="100"
+            <Frame WidthRequest="250"
+                   HeightRequest="250"
+                   CornerRadius="150"
                    BackgroundColor="#3399FF"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    HasShadow="True">
-                <Label Text="750"     
+                <Label Text="500"     
                        x:Name="DriverScoreLabel"
-                       FontSize="48"
+                       FontSize="58"
+                       FontAttributes="Bold"
                        TextColor="White"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -31,9 +32,10 @@
                     x:Name="StartTripBtn"
                     BackgroundColor="#4DA6FF"
                     TextColor="White"
-                    FontSize="18"
-                    CornerRadius="10"
+                    FontSize="26"
+                    CornerRadius="15"
                     WidthRequest="200"
+                    HeightRequest="60"
                     HorizontalOptions="Center"/>
 
             <!-- End Trip Button -->
@@ -41,9 +43,10 @@
                     x:Name="EndTripBtn"
                     BackgroundColor="#0066CC"
                     TextColor="White"
-                    FontSize="18"
+                    FontSize="26"
                     CornerRadius="10"
                     WidthRequest="200"
+                    HeightRequest="60"
                     HorizontalOptions="Center"/>
 
             <!-- History Button -->
@@ -51,9 +54,10 @@
                     x:Name="TripHistoryBtn"
                     BackgroundColor="#80CFFF"
                     TextColor="White"
-                    FontSize="18"
+                    FontSize="26"
                     CornerRadius="10"
                     WidthRequest="200"
+                    HeightRequest="60"
                     HorizontalOptions="Center"/>
         </VerticalStackLayout>
     </ScrollView>
