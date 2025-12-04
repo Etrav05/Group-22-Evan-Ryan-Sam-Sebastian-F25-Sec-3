@@ -4,28 +4,32 @@ namespace DriverTrackingApp;
 
 public partial class LoginPage : ContentPage
 {
-    public LoginPage()
+    private readonly TelemetryService _telemetry;
+    private readonly MainPage _mainPage;
+    public LoginPage(TelemetryService telemetry, MainPage mainPage)
     {
-        InitializeComponent();
+        InitializeComponent(); // Set up the UI components
+
+        _telemetry = telemetry;
+        _mainPage = mainPage;
+
+        // The login page is set up to already have the event wired in XAML so no need to do it here
     }
 
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        string user = UsernameEntry.Text;
+        string user = UsernameEntry.Text; // Creates both the users entries as variables
         string pass = PasswordEntry.Text;
 
         // Fake login values
         string fakeUser = "driver";
         string fakePass = "pass123";
 
-        if (user == fakeUser && pass == fakePass)
+        if (user == fakeUser && pass == fakePass) // Checks them against the hardcoded values
         {
-            var telemetry = App.Services.GetService<TelemetryService>();
+            _telemetry.AccountId = Guid.Parse("11111111-1111-1111-1111-111111111111"); // Hardcoded account for now
 
-            telemetry.AccountId = Guid.Parse("11111111-1111-1111-1111-111111111111"); // Hardcoded account for now
-
-            var mainPage = App.Services.GetService<MainPage>();
-            await Navigation.PushAsync(mainPage);
+            await Navigation.PushAsync(_mainPage); // Navigate to the main page if login is successful
         }
         else
         {

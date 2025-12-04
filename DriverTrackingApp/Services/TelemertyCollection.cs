@@ -2,7 +2,7 @@
 
 public class TelemetryService
 {
-    private readonly AppDbContext _db;    // Inject the database context
+    private readonly AppDbContext _db;       // Inject the database context
     public Guid AccountId { get; set; }
 
     private Guid _currentTripId;         // Track the current trip by its guid
@@ -15,15 +15,15 @@ public class TelemetryService
         AccountId = Guid.Parse("11111111-1111-1111-1111-111111111111");
     }
 
-    public async Task StartAsync()
+    public async Task StartAsync() // Task = async thing that can run without stopping the program
     {
         try
         {
-            PermissionStatus status = PermissionStatus.Unknown;
+            PermissionStatus status = PermissionStatus.Unknown; // Track if we have permission yet
 
             await MainThread.InvokeOnMainThreadAsync(async () => // Make sure permission requrest are always on the main thread
             {
-                status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>(); // This is a that location popup I showed you guys
             });
 
             if (status != PermissionStatus.Granted)
@@ -32,12 +32,13 @@ public class TelemetryService
                 return;
             }
 
-            _currentTripId = await CreateTripAsync();
+            _currentTripId = await CreateTripAsync(); // Start a new trip and get its ID
 
-            _ = StartLocationCollection();
-            StartAccelerationCollection();
+            _ = StartLocationCollection();      // Begin collecting location data (fire and forget)
+            _ = StartAccelerationCollection(); // Same here
         }
-        catch (Exception ex)
+
+        catch (Exception ex) // Kept getting errors with permissions, so added this to catch them
         {
             Console.WriteLine("ERROR in StartAsync: " + ex);
         }
@@ -45,7 +46,7 @@ public class TelemetryService
 
     private async Task<Guid> CreateTripAsync()
     {
-        Console.WriteLine("ACCOUNT ID = " + AccountId);
+        Console.WriteLine("ACCOUNT ID = " + AccountId); // DEBUG
         var trip = new Trips
         {
             AccountID = AccountId,
@@ -61,7 +62,7 @@ public class TelemetryService
     // Speed is also found in the location data
     private async Task StartLocationCollection()
     {
-        Console.WriteLine("Telemetry started!");
+        Console.WriteLine("Telemetry started!"); // DEBUG
 
         var request = new GeolocationRequest(GeolocationAccuracy.High);
 
@@ -84,7 +85,7 @@ public class TelemetryService
                     TimeData = DateTime.UtcNow
                 };
 
-                Console.WriteLine(tdpoint);
+                Console.WriteLine(tdpoint); // DEBUG
 
                 Console.WriteLine($"TripID={_currentTripId}, AccountID={AccountId}"); // DEBUG
                 _buffer.Add(tdpoint);
@@ -116,20 +117,23 @@ public class TelemetryService
         Console.WriteLine("Telemetry stopped!");
     }
 
-    private void StartAccelerationCollection()
+    private async Task StartAccelerationCollection()
     {
-        Accelerometer.ReadingChanged += (sender, eventData) =>
+        while (true)
         {
+            Accelerometer.ReadingChanged += (sender, eventData) =>
+            {
 
-            var x = eventData.Reading.Acceleration.X;
-            var y = eventData.Reading.Acceleration.Y;
-            var z = eventData.Reading.Acceleration.Z;
+                var x = eventData.Reading.Acceleration.X;
+                var y = eventData.Reading.Acceleration.Y;
+                var z = eventData.Reading.Acceleration.Z;
 
-            _AccelMagnitude = Math.Sqrt(x * x + y * y + z * z); // Simple magnitude formula (Euclidean Norm)
+                _AccelMagnitude = Math.Sqrt(x * x + y * y + z * z); // Simple magnitude formula (Euclidean Norm)
 
-            Console.WriteLine($"Acceleration: {x}, {y}, {z}");
-        };
+                Console.WriteLine($"Acceleration: {x}, {y}, {z}");
+            };
 
-        Accelerometer.Start(SensorSpeed.UI);
+            Accelerometer.Start(SensorSpeed.UI);
+        }
     }
 }
